@@ -45,6 +45,9 @@ def add_watermark(video_path, image_path, output_path):
 
 
 st.title('Video Watermarking App')
+# Add the footnote at the end of your Streamlit app
+st.markdown('This application creates a new video file with the given image as a watermark. The watermark will be placed in the bottom right corner of the video.')
+
 
 video_file = st.file_uploader("Choose a video...", type=["mp4"])
 image_file = st.file_uploader("Choose an image for watermark...", type=["png", "jpg"])
@@ -64,3 +67,7 @@ if video_file and image_file:
             add_watermark(video_path, image_path, output_path)
             st.success('Processing Complete!')
             st.text(f'New video was saved to: {os.path.realpath(output_path)}')
+
+# Add the footnote at the end of your Streamlit app
+st.markdown('---')
+st.markdown('Created by [Johannes Hayer](https://jhayer.tech) - Software Engineer')
