@@ -67,6 +67,13 @@ if video_file and image_file:
             add_watermark(video_path, image_path, output_path)
             st.success('Processing Complete!')
             st.text(f'New video was saved to: {os.path.realpath(output_path)}')
+            with open(output_path, "rb") as file:
+                btn = st.download_button(
+                    label="Download Video",
+                    data=file,
+                    file_name="watermarked_video.mp4",
+                    mime="video/mp4"
+        )
 
 # Add the footnote at the end of your Streamlit app
 st.markdown('---')
